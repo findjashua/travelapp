@@ -1,0 +1,14 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "coffee -w server.coffee"
+  },
+  "dependencies": {
+    "express": "3.3.4",
+    "jade": "*",
+	"coffee-script": "latest",
+	"yelp": "latest"
+  }
+}
