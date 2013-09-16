@@ -24,7 +24,8 @@ app.use express.static(path.join(__dirname, "public"))
 app.use express.errorHandler()  if "development" is app.get("env")
 
 place = require './place'
-app.post "/", place.list
+app.post "/yelp", place.yelp
+app.post "/google", place.google
 
 http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")
