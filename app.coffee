@@ -23,9 +23,10 @@ app.use express.static(path.join(__dirname, "public"))
 # development only
 app.use express.errorHandler()  if "development" is app.get("env")
 
-place = require './place'
-app.post "/yelp", place.yelp
-app.post "/google", place.google
+yelp = require './services/yelp'
+google = require './services/google'
+app.get "/yelp/:location/:term", yelp.listPlaces
+app.get "/google/:location", google.listPlaces
 
 http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")
