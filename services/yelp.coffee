@@ -9,6 +9,9 @@ exports.listPlaces = (req, res) ->
 		return res.send err if err?
 		places = []
 		for business in data.businesses
-			places.push business.name
+			info = {}
+			info.name = business.name
+			info.rating = business.rating
+			places.push info
 		res.send places
 
