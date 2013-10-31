@@ -23,8 +23,8 @@ app.use express.static(path.join(__dirname, "public"))
 # development only
 app.use express.errorHandler()  if "development" is app.get("env")
 
-yelp = require './services/yelp'
-google = require './services/google'
+yelp = require './apis/yelp'
+google = require './apis/google'
 app.get "/yelp/:location/:term", yelp.listPlaces
 app.get "/google/:location", google.listPlaces
 
