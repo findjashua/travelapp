@@ -31,10 +31,13 @@ else
 	# development only
 	app.use express.errorHandler()  if "development" is app.get("env")
 
+	app.get '/', (req, res)->
+		res.send 'server running'
+
 	yelp = require './apis/yelp'
 	google = require './apis/google'
-	app.get "/yelp/:location/:term", yelp.listPlaces
-	app.get "/google/:location", google.listPlaces
+	app.get '/yelp/:location/:term', yelp.listPlaces
+	app.get '/google/:location', google.listPlaces
 
 	http.createServer(app).listen app.get("port"), ->
 	  console.log "Express server listening on port " + app.get("port")
